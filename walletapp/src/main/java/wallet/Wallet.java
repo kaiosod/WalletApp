@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 public abstract class Wallet extends JFrame {
 
-    protected  JPanel pnlForm;
+    protected JPanel pnlForm;
     protected JPanel pnlFooter;
 
     protected JButton btnAdd;
@@ -48,11 +48,14 @@ public abstract class Wallet extends JFrame {
         this.getContentPane().add(getPnlForm(), BorderLayout.CENTER);
         this.getContentPane().add(getPnlFooter(), BorderLayout.PAGE_END);
 
+
         this.pack();
     }
 
     protected abstract void btnCloseClick(ActionEvent ev);
+
     protected abstract void btnCleanClick(ActionEvent ev);
+
     protected abstract void btnAddClick(ActionEvent ev);
 
     private void events() {
@@ -63,10 +66,10 @@ public abstract class Wallet extends JFrame {
     }
 
     public JPanel getPnlForm() {
-        if(pnlForm == null) {
-            pnlForm = new JPanel(new GridLayout(5,2));
+        if (pnlForm == null) {
+            pnlForm = new JPanel(new GridLayout(5, 2));
 
-            lblName =  new JLabel("Name");
+            lblName = new JLabel("Name");
             txtName = new JTextField(25);
 
             lblInitials = new JLabel("Initials");
@@ -102,7 +105,7 @@ public abstract class Wallet extends JFrame {
     }
 
     public JPanel getPnlFooter() {
-        if(pnlFooter == null){
+        if (pnlFooter == null) {
             pnlFooter = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
             btnAdd = new JButton("Add");
@@ -115,4 +118,5 @@ public abstract class Wallet extends JFrame {
         }
         return pnlFooter;
     }
+
 }

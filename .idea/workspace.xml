@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa8862db-80e5-4d45-ac49-13de229d085f" name="Changes" comment="start project">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/walletapp/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/walletapp/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/walletapp/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/src/main/java/wallet/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/src/main/java/wallet/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/src/main/java/wallet/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/src/main/java/wallet/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/src/main/java/wallet/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/src/main/java/wallet/Wallet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +85,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653830053506</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="start project">
+      <created>1654900314345</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654900314345</updated>
+    </task>
+    <task id="LOCAL-00003" summary="start project">
+      <created>1654900418620</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654900418620</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
