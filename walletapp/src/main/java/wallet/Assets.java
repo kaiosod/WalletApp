@@ -1,11 +1,10 @@
 package wallet;
 
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+
 
 
 public class Assets extends Wallet {
@@ -25,6 +24,39 @@ public class Assets extends Wallet {
         txtPrice.setText("");
         txtInitials.setText("");
         txtTotalValue.setText("");
+        txtDelete.setText("");
+
+    }
+
+    protected void btnDeleteClick(ActionEvent ev) {
+
+        Connection connect = null;
+        String x_delete = txtDelete.getText();
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/wallet","root","kaio123k7");
+
+            PreparedStatement stmt = connect.prepareStatement("DELETE FROM assets WHERE Initials = ?");
+
+            stmt.setString(1,x_delete);
+
+            stmt.executeUpdate();
+
+
+        } catch (ClassNotFoundException e) {
+            System.out.println("Drive Error: " + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Connection Error: " + e.getMessage());
+        }finally {
+            if(connect != null) {
+                try {
+                    connect.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
 
     }
 
@@ -43,9 +75,11 @@ public class Assets extends Wallet {
 
         System.out.println("Connection: Done");
 
+        Connection connect = null;
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/wallet","root","kaio123k7");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/wallet","root","kaio123k7");
 
             PreparedStatement stmt = connect.prepareStatement("INSERT INTO assets (Nome, Amount, Initials, Price, Total) VALUES (?,?,?,?,?)");
 
@@ -62,7 +96,18 @@ public class Assets extends Wallet {
             System.out.println("Drive Error: " + e.getMessage());
         } catch (SQLException e) {
             System.out.println("Connection Error: " + e.getMessage());
+        }finally {
+            if(connect != null) {
+                try {
+                    connect.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
 
     }
+
+
+
 }

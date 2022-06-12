@@ -4,14 +4,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+
 public abstract class Wallet extends JFrame {
 
     protected JPanel pnlForm;
     protected JPanel pnlFooter;
+    protected JPanel pnlDelete;
 
     protected JButton btnAdd;
     protected JButton btnClean;
     protected JButton btnClose;
+
+    protected JButton btnDelete;
+    protected JTextField txtDelete;
+
+    protected JLabel lblDelete;
 
     // name
     protected JLabel lblName;
@@ -33,6 +40,7 @@ public abstract class Wallet extends JFrame {
     protected JLabel lblTotalValue;
     protected JTextField txtTotalValue;
 
+
     public Wallet() {
         this.start();
         this.events();
@@ -40,16 +48,16 @@ public abstract class Wallet extends JFrame {
 
     protected void start() {
         this.setTitle("Wallet");
-        //this.setSize(640,480);
+        this.setSize(640,480);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         this.getContentPane().setLayout(new BorderLayout()); // search
 
-        this.getContentPane().add(getPnlForm(), BorderLayout.CENTER);
-        this.getContentPane().add(getPnlFooter(), BorderLayout.PAGE_END);
+        this.getContentPane().add(getPnlForm(), BorderLayout.PAGE_START);
+        this.getContentPane().add(getPnlFooter(), BorderLayout.CENTER);
+        this.getContentPane().add(getPnlDelete(), BorderLayout.PAGE_END);
 
-
-        this.pack();
+        //this.pack();
     }
 
     protected abstract void btnCloseClick(ActionEvent ev);
@@ -58,10 +66,15 @@ public abstract class Wallet extends JFrame {
 
     protected abstract void btnAddClick(ActionEvent ev);
 
+    protected abstract void btnDeleteClick(ActionEvent ev);
+
+
     private void events() {
         btnClose.addActionListener(this::btnCloseClick);
         btnClean.addActionListener(this::btnCleanClick);
         btnAdd.addActionListener(this::btnAddClick);
+        btnDelete.addActionListener(this::btnDeleteClick);
+
 
     }
 
@@ -70,19 +83,19 @@ public abstract class Wallet extends JFrame {
             pnlForm = new JPanel(new GridLayout(5, 2));
 
             lblName = new JLabel("Name");
-            txtName = new JTextField(25);
+            txtName = new JTextField(10);
 
             lblInitials = new JLabel("Initials");
-            txtInitials = new JTextField(20);
+            txtInitials = new JTextField(10);
 
             lblPrice = new JLabel("Price");
-            txtPrice = new JTextField(20); // mudar
+            txtPrice = new JTextField(10); // mudar
 
             lblAmount = new JLabel("Amount");
-            txtAmount = new JTextField(20); // mudar
+            txtAmount = new JTextField(10); // mudar
 
             lblTotalValue = new JLabel("Total");
-            txtTotalValue = new JTextField(20); //mudar
+            txtTotalValue = new JTextField(10); //mudar
             txtTotalValue.setEditable(false);
 
             pnlForm.add(lblName);
@@ -115,8 +128,30 @@ public abstract class Wallet extends JFrame {
             pnlFooter.add(btnAdd);
             pnlFooter.add(btnClean);
             pnlFooter.add(btnClose);
+
         }
         return pnlFooter;
     }
+
+    public JPanel getPnlDelete() {
+        if (pnlDelete == null) {
+            //pnlDelete = new JPanel(new GridLayout(1, 2));
+            pnlDelete = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+            lblDelete = new JLabel("Enter Initials");
+            txtDelete = new JTextField(10);
+            btnDelete = new JButton("Delete");
+
+            txtDelete.setMaximumSize(new Dimension(10,20));
+
+            pnlDelete.add(lblDelete);
+            pnlDelete.add(txtDelete);
+            pnlDelete.add(btnDelete);
+
+        }
+        return pnlDelete;
+    }
+
+
 
 }
